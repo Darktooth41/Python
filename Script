@@ -5,6 +5,8 @@ answer = False
 sick = False
 key = False
 win = False
+health = False
+hunger = True
 while run:
     command = input("Do you need Help? ")
     command = command.lower()
@@ -19,12 +21,22 @@ while run:
             print("This doesn't feel right, maybe you should Reject it.")
         else:
             print("You feel fine.")
+        if health:
+            print("Healthy as you can be, considering what you just ate.")
+        else:
+            print("You could probably stand to gain a few more pounds.")
+        if hunger:
+            print("You're so hungry you could eat anything... A n y t h i n g.")
+        else:
+            print("You feel pretty full.")
     elif command == "you":
         print("I'm here to help.")
     elif command == "eat":
         print("You consume your daily dose of rock. Congrats, you put a rock in your stomach. I bet you feel"
               " proud of yourself now. Your reward? Indigestion.")
         sick = True
+        health = True
+        hunger = False
     elif command == "reject":
         if sick:
             print("You VIOLENTLY throw up because you can't eat rocks, you idiot. Except strangely enough, instead of "
