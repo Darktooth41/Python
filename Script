@@ -1,0 +1,85 @@
+from Lib import random
+print("This rock is not yours.")
+run = True
+answer = False
+sick = False
+key = False
+win = False
+while run:
+    command = input("Do you need Help? ")
+    command = command.lower()
+    if command == "help":
+        print("I can give you the following information: Self, Help, You, Leave, Look.")
+    elif command == "leave":
+        print("Perhaps this is for the best.")
+        input("Press Enter to exit. ")
+        run = False
+    elif command == "self":
+        if sick:
+            print("This doesn't feel right, maybe you should Reject it.")
+        else:
+            print("You feel fine.")
+    elif command == "you":
+        print("I'm here to help.")
+    elif command == "eat":
+        print("You consume your daily dose of rock. Congrats, you put a rock in your stomach. I bet you feel"
+              " proud of yourself now. Your reward? Indigestion.")
+        sick = True
+    elif command == "reject":
+        if sick:
+            print("You VIOLENTLY throw up because you can't eat rocks, you idiot. Except strangely enough, instead of "
+                  "a rock, you get a key. \nIt's for a door that's in front of you now. That door wasn't there before."
+                  " There weren't even any walls. And so, you open it.")
+            key = True
+        else:
+            print("There's nothing to reject because nothing is wrong.")
+    elif command == "open":
+        if key:
+            print("You open the door. And on the other side is everything you could have hoped for. Oh no.")
+            win = True
+        else:
+            win = False
+            print("What are you trying to open? There's nothing to open.")
+    elif command == "look":
+        if answer:
+            print("You're pretty sure your answer lies in the act of eating that rock. And, for whatever reason "
+                  "it looks quite tasty. \nI think it's a terrible idea, but this place makes no sense to begin "
+                  "with so whatever. \nGo ahead and Eat it.")
+        else:
+            print("This place is confusing. You have a rock, you have me, and you have you. There is also a book that "
+                  "constantly changes; you could try to Read it.")
+    elif command == "read":
+        num = random.randrange(10)
+        if num == 0:
+            print("\"Divine Indigestion is the rare case in which a God, of a certain unnamed belief, would intervene"
+                  " and cause a miraculous event to occur within the stomach. \nA rejection of the contents often"
+                  " leads to said stomach avoiding some crisis. Like indigestion.\"")
+            answer = True
+        elif num == 1:
+            print("\"Take a look around; nothing much has changed.\"")
+        elif num == 2:
+            print("You can't read what it says. Not because its illegible in any way. You physically cannot read it.")
+        elif num == 3:
+            print("\"Rocks! It's many advantages in cooking and consumption! Have you Eaten one today?\"")
+        elif num == 4:
+            print("If I told you what the book said, you'd die of laughter.")
+        elif num == 5:
+            print("\"Anything with edges is Evil. Including this book.\" Maybe you should stop reading?")
+        elif num == 6:
+            print("\"According to all known laws of aviation,there is no way a bee should be able to fly. \nIts wings "
+                  "are too small to get its fat little body off the ground. \nThe bee, of course, flies anyway because "
+                  "bees don't care what humans think is impossible.\" \nThere's more but that's not what's "
+                  "interesting. \nThe book never changes size and somehow contains an entire screenplay for a movie "
+                  "about bees.")
+        elif num == 7:
+            print("\"I don't care how much you want it, biology says you can't mix a bat and a man together.\"")
+        elif num == 8:
+            print("\"This entry represents '9' as index 8 in an array of 10.\"")
+        elif num == 9:
+            print("\"If you're reading this, it's already too late. They are on their way.\"")
+    else:
+        print("No, I don't think I can help with that.")
+    if key:
+        print("You win! Yay!")
+        input("Press Enter to exit. ")
+        run = False
